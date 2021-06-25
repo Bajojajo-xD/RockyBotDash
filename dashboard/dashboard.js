@@ -34,10 +34,9 @@ module.exports = async (client) => {
   var domain
   
   try {
-    const domainUrl = new URL(config.dashboard.domain)
     domain = {
-      host: domainUrl.hostname,
-      protocol: domainUrl.protocol
+      host: 'rockybot.cf',
+      protocol: 'https:'
     }
   } catch (e) {
     console.log(e)
