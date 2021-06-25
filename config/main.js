@@ -3,7 +3,7 @@ require('dotenv').config()
 
 module.exports = {
 
-    beta: true,
+    beta: false,
 
     releasedate: info.releasedate,
     version: info.version,
