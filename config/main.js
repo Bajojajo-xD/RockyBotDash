@@ -3,6 +3,8 @@ require('dotenv').config()
 
 module.exports = {
 
+    beta: true,
+
     releasedate: info.releasedate,
     version: info.version,
     github: info.github,
@@ -21,6 +23,6 @@ module.exports = {
     dashboard: {
       domain: process.env.DOMAIN,
       port: process.env.PORT || 8080,
-      usingCustomDomain: true
+      usingCustomDomain: process.env.NotUseCustomDom?false:true
     }
 }

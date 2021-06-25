@@ -228,7 +228,7 @@ module.exports = async (client) => {
         await storedSettings.save().catch(() => {})
 
         // We render the template with an alert text which confirms that settings have been saved.
-        renderTemplate(res, req, 'settings.ejs', { guild, settings: storedSettings, alert: `${req.body.prefix ? `Zapisano prefix '${req.body.prefix}'` : 'Nie zmieniłeś ustawień'}` })
+        renderTemplate(res, req, 'settings.ejs', { guild, settings: storedSettings, alert: `${req.body.prefix ? 'Zapisano prefix' : 'Nie zmieniłeś ustawień'}` })
     })
 
   app.listen(config.dashboard.port, null, null, () => {
