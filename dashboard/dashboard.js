@@ -52,6 +52,7 @@ module.exports = async (client) => {
   
   // This line is to inform users where the system will begin redirecting the users.
   // And can be removed.
+  console.log(chalk.redBright('---'))
   console.log(chalk.yellowBright(`Info: oto twój URL do ustawienia przekierowania w discord dev portal:\n${callbackUrl}`))
   console.log(chalk.redBright('---'))
 
