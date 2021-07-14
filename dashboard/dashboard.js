@@ -34,9 +34,17 @@ module.exports = async (client) => {
   var domain
   
   try {
-    domain = {
-      host: 'rockybot.cf',
-      protocol: 'https:'
+    if (!config.beta) {
+      domain = {
+        host: 'rockybot.cf',
+        protocol: 'https:'
+      }
+    }
+    else {
+      domain = {
+        host: 'localhost',
+        protocol: 'http:'
+      }
     }
   } catch (e) {
     console.log(e)
@@ -221,13 +229,11 @@ module.exports = async (client) => {
           storedSettings = await GuildSettings.findOne({ GuildID: guild.id })
         }
       
-        // We set the prefix of the server settings to the one that was sent in request from the form.
-        storedSettings.Prefix = req.body.prefix
         // We save the settings.
         await storedSettings.save().catch(() => {})
 
         // We render the template with an alert text which confirms that settings have been saved.
-        renderTemplate(res, req, 'settings.ejs', { guild, settings: storedSettings, alert: `${req.body.prefix ? 'Zapisano prefix' : 'Nie zmieniłeś ustawień'}` })
+        renderTemplate(res, req, 'settings.ejs', { guild, settings: storedSettings, alert: `${'Zapisano'}` })
     })
 
   app.listen(config.dashboard.port, null, null, () => {

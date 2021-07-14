@@ -21,7 +21,7 @@ module.exports = {
     },
 
     dashboard: {
-      domain: process.env.DOMAIN,
+      domain: process.env.DOMAIN || 'http://localhost',
       port: process.env.PORT || 8080,
       usingCustomDomain: process.env.NotUseCustomDom?false:true
     }
